@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {   // callback
     // const body = req.body;
-    const {id,first_name, last_name,Birth_day,height,gender,weight, email, password, insertData, updateData } = req.body; //distructure way
+    const {id, first_name, last_name, Birth_day, height, gender,weight, email, password, insertData, updateData } = req.body; //distructure way
     // סוגריים מסולסלים מייצגים אובייקט
 
     // Check if name and email are provided
