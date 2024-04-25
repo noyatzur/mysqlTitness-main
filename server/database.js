@@ -24,9 +24,9 @@ const pool = mysql.createPool({
     return await query(sql, [userId]);
   }
   
-  async function insertUser(id,first_name, last_name,age,height,gender,weight, email, password, active, insertData, updateData) {
-    const sql = 'INSERT INTO users (id,first_name,last_name,age,height,gender,weight, email, password,active,insertData,updateData) VALUES (?, ?, ?, ?, ?, ?, ? ,? ,? ,? ,? ,? )';
-    return await query(sql, [id,first_name, last_name,age,height,gender,weight, email, password, active, insertData, updateData]);
+  async function insertUser(id,first_name, last_name,Birth_day,height,gender,weight, email, password, insertData, updateData) {
+    const sql = 'INSERT INTO users (id,first_name,last_name,Birth_day,height,gender,weight, email, password,insertData,updateData) VALUES ( ?, ?, ?, ?, ?, ? ,? ,? ,? ,? ,? )';
+    return await query(sql, [id,first_name, last_name,Birth_day,height,gender,weight, email, password, insertData, updateData]);
   }
   
   async function deleteUserById(userId){
