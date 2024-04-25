@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Register = () => {
     const [first_name, setFirst_name] = useState('');
     const [last_name, setLast_name] = useState('');
-    const [Birth_daye, setBirth_day] = useState('');
+    const [Birth_day, setBirth_day] = useState('');
     const [height, setHeight] = useState('');
     const [gender, setGender] = useState('');
     const [weight, setWeight] = useState('');
@@ -19,7 +19,7 @@ const Register = () => {
         e.preventDefault();
         console.log(first_name);
         console.log(last_name);
-        console.log(age);
+        console.log(Birth_day);
         console.log(height);
         console.log(gender);
         console.log(weight);
@@ -39,8 +39,8 @@ const Register = () => {
                     <input value={first_name} onChange={(e) => setFirst_name(e.target.value)} type="text" placeholder="What is your First Name" id="first_name" name="first_name" ></input>
                     <label htmlFor="last_name"> Last Name</label>
                     <input value={last_name} onChange={(e) => setLast_name(e.target.value)} type="text" placeholder="What is your Last Name" id="last_name" name="last_name" ></input>
-                    <label htmlFor="age"> Birth_day</label>
-                    <input value={age} onChange={(e) => setAge(e.target.value)} type="number" placeholder="What is your age?" id="age" name="age" min="18" max="120"></input>
+                    <label htmlFor="Birth_day"> Birth_day</label>
+                    <input value={Birth_day} onChange={(e) => setBirth_day(e.target.value)} type="date"  id="Birth_day" name="Birth_day" min="18" max="120"></input>
                     <label htmlFor="height"> Height</label>
                     <input value={height} onChange={(e) => setHeight(e.target.value)} type="text" placeholder="ehat is your height" id="height" name="height" ></input>
                     <div>
