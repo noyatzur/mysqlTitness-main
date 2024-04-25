@@ -1,0 +1,22 @@
+.note-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.note {
+  background-color: #f0f0f0;
+  padding: 20px; 
+  margin-top: 20px; 
+  border-radius: 5px; /* Add border-radius for box shape */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box-shadow for depth effect */
+  direction: rtl;
+}
+
+.click-here {
+  font-weight: bold;
+  margin-top: 10px;
+  color: blue;
+  direction: rtl;
+}

@@ -1,0 +1,43 @@
+.container2 {
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  border: 1px solid black;
+  width: 80%;
+
+}
+  h1{
+    direction: rtl;
+  }
+
+  h2{
+    direction: rtl;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .active-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .gender-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .gender-icon {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    margin-right: 5px; /* Adjust spacing between icon and label */
+  }
+  
+  
+  button {
+    margin-top: 20px;
+  }
+ 

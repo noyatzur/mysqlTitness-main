@@ -1,0 +1,13 @@
+.body{
+    direction: rtl;
+}
+
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+img{
+    width: 50%;
+    height: auto;
+}
