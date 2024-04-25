@@ -15,17 +15,17 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {   // callback
     // const body = req.body;
-    const {id,first_name, last_name,age,height,gender,weight, email, password, active, insertData, updateData } = req.body; //distructure way
+    const {id,first_name, last_name,Birth_day,height,gender,weight, email, password, insertData, updateData } = req.body; //distructure way
     // סוגריים מסולסלים מייצגים אובייקט
 
     // Check if name and email are provided
-      if(!id || !first_name || !last_name || !age || !height || !gender || !weight || !email || !password || !active || !insertData || !updateData) {
+      if(!id || !first_name || !last_name ||  !Birth_day || !height || !gender || !weight || !email || !password ||  !insertData || !updateData) {
         return res.status(400).json({ error: 'need to check for empty required field' });
     }
 
     // Insert the user into the database
     try {
-        await db.insertUser(id,first_name, last_name,age,height,gender,weight, email, password, active, insertData, updateDataa);
+        await db.insertUser(id,first_name, last_name, Birth_day, height,gender,weight, email, password,  insertData, updateData);
         res.status(201).json({ message: 'User added successfully' });
     } catch (err) {
         console.error('Error inserting user:', err);
