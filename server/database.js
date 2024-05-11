@@ -23,6 +23,7 @@ const pool = mysql.createPool({
     const sql = 'SELECT * FROM users WHERE id = ?';
     return await query(sql, [userId]);
   }
+  // new function to get user by email for login
   async function getUserByEmail(email) {
     const sql = 'SELECT * FROM users WHERE email = ?';
     return await query(sql, [email]);
