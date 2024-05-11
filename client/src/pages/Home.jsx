@@ -35,8 +35,8 @@ const Home = () => {
 
       </div>
       <Link to="/Register">
-        <Card />
-      </Link>
+            <Card />
+            </Link>
 
 
     </div>
