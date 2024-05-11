@@ -23,10 +23,14 @@ const pool = mysql.createPool({
     const sql = 'SELECT * FROM users WHERE id = ?';
     return await query(sql, [userId]);
   }
+  async function getUserByEmail(email) {
+    const sql = 'SELECT * FROM users WHERE email = ?';
+    return await query(sql, [email]);
+  }
   
-  async function insertUser(id,first_name, last_name,Birth_day,height,gender,weight, email, password, insertData, updateData) {
-    const sql = 'INSERT INTO users (id,first_name,last_name,Birth_day,height,gender,weight, email, password,insertData,updateData) VALUES ( ?, ?, ?, ?, ?, ? ,? ,? ,? ,? ,? )';
-    return await query(sql, [id,first_name, last_name,Birth_day,height,gender,weight, email, password, insertData, updateData]);
+  async function insertUser(first_name, last_name, Birth_day, height, gender, weight, email, password, insertData, updateData) {
+    const sql = 'INSERT INTO users (first_name,last_name,Birth_day,height,gender,weight, email, password,insertData,updateData) VALUES ( ?, ?, ?, ?, ? ,? ,? ,? ,? ,? )';
+    return await query(sql, [first_name, last_name,Birth_day,height,gender,weight, email, password, insertData, updateData]);
   }
   
   async function deleteUserById(userId){
@@ -75,5 +79,6 @@ const pool = mysql.createPool({
     showMenu,
     deleteItemMenuById,
     showPrograms,
-    deleteItemProgramsById
+    deleteItemProgramsById,
+    getUserByEmail
   }

@@ -4,15 +4,26 @@ import Card from '../components/Card';
 import '../css/Login.css'
 import {Link } from "react-router-dom";
 
+async function fetchUserByEmal(email) {
+    const response = await fetch(`http://localhost:3001/users/${email}`);
+    const user = await response.json();
+    return user;
+}
+
 const Login = () => {
     const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false); // State for the checkbox
 
-    const handleSubmit = (e) => {
+     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(email);
-        console.log(rememberMe); 
+        var user = await fetchUserByEmal(email);
+        if (user.data.length > 0) {
+            console.log(user && user , "user.data");
+            
+        } else {
+            console.log("user not found");
+        }
     }
        
     return (
@@ -23,9 +34,9 @@ const Login = () => {
             <div className="container">
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email"></input>
+                    <input required value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email"></input>
                     <label htmlFor="password">Password</label>
-                    <input value={pass} onChange={(e) => setPass(e.target.value)} type="text" placeholder="********" id="password" name="password"></input>
+                    <input required value={password} onChange={(e) => setPassword(e.target.value)} type="text" placeholder="********" id="password" name="password"></input>
                     <div>
                         <input type="checkbox" id="rememberMe" name="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}></input>
                         <label htmlFor="rememberMe">Remember me</label>
