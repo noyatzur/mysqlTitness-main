@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import '../css/Register.css'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";//נותן אפשרות לאיזה נתיב לשלוח..
 
 
 
 
 async function fetchFitnessData() {
-    const response = await fetch("http://localhost:3001/users");
+    const response = await fetch("http://localhost:3002/users");
     const users = await response.json();
     console.log(users);
 }
-var url =  "http://localhost:3001/users";
+var url = "http://localhost:3002/users";
 
 async function postData(url, data = {}) {
     try {
@@ -20,8 +20,8 @@ async function postData(url, data = {}) {
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
             credentials: "same-origin", // include, *same-origin, omit
             headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
+                "Content-Type": "application/json",
+                // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             redirect: "follow", // manual, *follow, error
             referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
@@ -32,7 +32,7 @@ async function postData(url, data = {}) {
     } catch (error) {
         console.log("error postData", error);
     }
-   
+
 }
 
 
@@ -56,25 +56,25 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         try {
-            var res = postData(url,{
-            first_name,
-            last_name,
-            height,
-            gender,
-            Birth_day,
-            weight,
-            email,
-            password,
-            insertData,
-            updateData,
+            var res = postData(url, {
+                first_name,
+                last_name,
+                height,
+                gender,
+                Birth_day,
+                weight,
+                email,
+                password,
+                insertData,
+                updateData,
             })
-            console.log(res, 'res');
-            // navigate('/'); // Redirect to the home page
+            // console.log(res, 'res');
+            navigate('/ThankYou'); // Redirect to the home page
 
         } catch (error) {
             console.log(error, 'error');
         }
-      
+
     }
 
     return (
@@ -83,14 +83,22 @@ const Register = () => {
             <h2>תנו לנו להכיר אתכם כדי שניצור יחד את ה "new you" </h2>
             <div className="container2">
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="first_name">First Name</label>
-                    <input required value={first_name} onChange={(e) => setFirst_name(e.target.value)} type="text" placeholder="What is your First Name" id="first_name" name="first_name" ></input>
-                    <label htmlFor="last_name"> Last Name</label>
-                    <input required value={last_name} onChange={(e) => setLast_name(e.target.value)} type="text" placeholder="What is your Last Name" id="last_name" name="last_name" ></input>
-                    <label htmlFor="Birth_day"> Birth_day</label>
-                    <input required value={Birth_day} onChange={(e) => setBirth_day(e.target.value)} type="date"  id="Birth_day" name="Birth_day" min="18" max="120"></input>
-                    <label htmlFor="height"> Height</label>
-                    <input required value={height} onChange={(e) => setHeight(e.target.value)} type="text" placeholder="ehat is your height" id="height" name="height" ></input>
+                    <div>
+                        <label htmlFor="first_name">First Name</label>
+                        <input required value={first_name} onChange={(e) => setFirst_name(e.target.value)} type="text" placeholder="What is your First Name" id="first_name" name="first_name" ></input>
+                    </div>
+                    <div>
+                        <label htmlFor="last_name"> Last Name</label>
+                        <input required value={last_name} onChange={(e) => setLast_name(e.target.value)} type="text" placeholder="What is your Last Name" id="last_name" name="last_name" ></input>
+                    </div>
+                    <div>
+                        <label htmlFor="Birth_day"> Birth_day</label>
+                        <input required value={Birth_day} onChange={(e) => setBirth_day(e.target.value)} type="date" id="Birth_day" name="Birth_day" min="18" max="120"></input>
+                    </div>
+                    <div>
+                        <label htmlFor="height"> Height</label>
+                        <input required value={height} onChange={(e) => setHeight(e.target.value)} type="text" placeholder="what is your height" id="height" name="height" ></input>
+                    </div>
                     <div>
                         <label> Choose Gender:</label>
                         <div className="gender-options">
@@ -108,16 +116,21 @@ const Register = () => {
                         </div>
 
                     </div>
-                    <label htmlFor="weight">Weight</label>
-                    <input required value={weight} onChange={(e) => setWeight(e.target.value)} type="text" placeholder="What is your weight" id="weight" name="weight"  ></input>
-                    <label htmlFor="email">Email</label>
-                    <input required value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email"></input>
-                    <label htmlFor="password">Password</label>
-                    <input required value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" id="password" name="password"></input>
-                    
                     <div>
-                        <input type="checkbox" id="rememberMe" name="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}></input>
+                        <label htmlFor="weight">Weight</label>
+                        <input required value={weight} onChange={(e) => setWeight(e.target.value)} type="text" placeholder="What is your weight" id="weight" name="weight"  ></input>
+                    </div>
+                    {/* <div>
+                        <label htmlFor="email">Email</label>
+                        <input required value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email"></input>
+                    </div>
+                    <div>
+                        <label htmlFor="password">Password</label>
+                        <input required value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="********" id="password" name="password"></input>
+                    </div> */}
+                    <div>
                         <label htmlFor="rememberMe">Remember me</label>
+                        <input type="checkbox" id="rememberMe" name="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}></input>
                     </div>
                     <button type="submit">Register here</button>
                 </form>

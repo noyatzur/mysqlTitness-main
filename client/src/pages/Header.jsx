@@ -11,6 +11,7 @@ const Header = () => {
       <li > <Link to="/">Home</Link>  </li>
       <li > <Link to="/Login">Login</Link>  </li>
       <li > <Link to="/Register">Register</Link> </li>
+      <li > <Link to="/userRegister">userRegister</Link> </li>
       <li > <Link to="/Videos">Videos</Link> </li>
       <li > <Link to="/MYProfile">MY Profile</Link> </li>
       <li><a href="https://www.instagram.com/_noya_tzur_" target="_blank" rel="noopener noreferrer">Instagram</a></li>
