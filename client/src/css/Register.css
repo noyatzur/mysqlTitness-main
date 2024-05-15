@@ -1,11 +1,25 @@
 .container2 {
-  width: 400px;
-  margin: auto;
-  text-align: center;
-  border: 1px solid black;
   width: 80%;
-
+  margin: auto;
+  padding:10px;
+  /* text-align: center; */
+  text-align: left;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
 }
+.container2 div{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container2 div input{
+  width:600px;
+}
+input{
+  width: 50%;
+}
+
   h1{
     direction: rtl;
   }
@@ -35,8 +49,7 @@
     height: 20px; /* Adjust size as needed */
     margin-right: 5px; /* Adjust spacing between icon and label */
   }
-  
-  
+    
   button {
     margin-top: 20px;
   }

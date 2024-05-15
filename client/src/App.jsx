@@ -10,9 +10,11 @@ import Card from './components/Card';
 import Card2 from "./components/CardLogin";
 import Header from "./pages/Header";
 import Register  from './pages/Register';
+import userRegister from "./pages/userRegister";
 import Home from "./pages/Home";
 import Videos from "./pages/Videos";
 import MYProfile from "./pages/MyProfile";
+import ThankYou from "./pages/ThankYou";
 
 
 
@@ -25,8 +27,10 @@ function App() {
           <Route index element={<Home />} />
           <Route path="Login" element={<Login />}   />
           <Route path="Register" element={<Register />} />
+          <Route path="userRegister" element={<userRegister />} />
           <Route path="Videos" element={<Videos />} />
           <Route path="MYProfile" element={<MYProfile />} />
+          <Route path="ThankYou" element={<ThankYou />} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>
